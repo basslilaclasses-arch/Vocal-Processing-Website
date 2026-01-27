@@ -6201,7 +6201,7 @@ figcaption {
 }
 
 .landing-finalcta_image-bg.is-finalcta {
-  background-image: url("https://cdn.prod.website-files.com/6343d3842662297bee6d9b2a/684ffba06ccca91a041b3a78_Superpower%20With%20Rays_Enhanced%201.avif");
+  background-image: url("../images/finalcta_background.png");
 }
 
 .landing-header_videobg-wrapper {
@@ -15960,7 +15960,7 @@ figcaption {
   }
 
   .landing-finalcta_image-bg-mobile {
-    background-image: url("https://cdn.prod.website-files.com/6343d3842662297bee6d9b2a/684ffba06ccca91a041b3a78_Superpower%20With%20Rays_Enhanced%201.avif");
+    background-image: url("../images/finalcta_background.png");
     background-position: 50%;
     background-size: cover;
     border-radius: 1rem;
