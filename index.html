@@ -162,11 +162,29 @@
   .section_curriculum .curriculum_curriculum-item-wrapper,
   .section_curriculum .curriculum_step-wrap,
   .section_curriculum .curriculum_curriculum-item,
-  .section_curriculum .curriculum_category-content-wrapper,
   .section_curriculum .curriculum_spacer + .curriculum_step-wrap,
   .section_curriculum .landing-curriculum_component {
     width: 100% !important;
     max-width: 100% !important;
+  }
+  
+  /* Content wrapper must flex-fill remaining space after category sidebar */
+  .section_curriculum .curriculum_category-content-wrapper {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+    width: auto !important;
+    max-width: 100% !important;
+  }
+  
+  /* Category sidebar should not shrink */
+  .section_curriculum .curriculum_category-wrapper {
+    flex-shrink: 0 !important;
+  }
+  
+  /* Card should adapt height to content, not fixed */
+  .section_curriculum .curriculum_curriculum-item {
+    height: auto !important;
+    min-height: 28.125rem !important;
   }
   
   /* Text and Image split */
