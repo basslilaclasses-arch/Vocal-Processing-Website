@@ -207,20 +207,40 @@
   animation: btnGlow 2.5s ease-in-out infinite alternate;
 }
 @keyframes btnGlow {
-  0%   { box-shadow: 0 0 12px 3px rgba(212,175,55,0.4), 0 0 25px 6px rgba(212,175,55,0.15); }
-  100% { box-shadow: 0 0 18px 6px rgba(212,175,55,0.6), 0 0 40px 12px rgba(212,175,55,0.25); }
+  0%   { box-shadow: 0 0 12px 3px rgba(212,175,55,0.4), 0 0 25px 6px rgba(212,175,55,0.15), inset 0 0 6px rgba(212,175,55,0.1); border-color: rgba(212,175,55,0.6); }
+  50%  { box-shadow: 0 0 20px 6px rgba(212,175,55,0.65), 0 0 45px 14px rgba(212,175,55,0.3), inset 0 0 10px rgba(212,175,55,0.2); border-color: rgba(212,175,55,1); }
+  100% { box-shadow: 0 0 12px 3px rgba(212,175,55,0.4), 0 0 25px 6px rgba(212,175,55,0.15), inset 0 0 6px rgba(212,175,55,0.1); border-color: rgba(212,175,55,0.6); }
 }
 .yt-player__btn:hover {
   background: rgba(212, 175, 55, 0.25);
   transform: scale(1.08);
   box-shadow: 0 0 20px 8px rgba(212, 175, 55, 0.6), 0 0 45px 15px rgba(212, 175, 55, 0.3);
 }
+.yt-player__btn:hover + .yt-player__arrow { opacity: 0; }
 .yt-player__btn svg {
   width: 22px;
   height: 22px;
   fill: #d4af37;
   margin-left: 3px;
   filter: drop-shadow(0 0 4px rgba(212,175,55,0.6));
+}
+/* Animated arrow pointing to play button */
+.yt-player__arrow {
+  position: absolute;
+  bottom: 70px;
+  left: 75px;
+  z-index: 6;
+  width: 70px;
+  height: 80px;
+  pointer-events: none;
+  animation: arrowBounce 2s ease-in-out infinite;
+  opacity: 0.95;
+  transition: opacity 0.4s ease;
+}
+.yt-player--active .yt-player__arrow { display: none; }
+@keyframes arrowBounce {
+  0%, 100% { transform: translate(0, 0); opacity: 0.95; }
+  50%      { transform: translate(-6px, 8px); opacity: 1; }
 }
 .yt-player__iframe {
   position: absolute;
@@ -291,6 +311,12 @@
   .yt-player__btn svg {
     width: 18px;
     height: 18px;
+  }
+  .yt-player__arrow {
+    bottom: 50px;
+    left: 50px;
+    width: 50px;
+    height: 60px;
   }
   .yt-player__fallback a {
     padding: 10px 22px;
@@ -1192,6 +1218,10 @@ margin: 0rem !important;
   <button class="yt-player__btn" aria-label="Play video">
     <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
   </button>
+  <svg class="yt-player__arrow" viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M55 5 C50 25, 35 50, 15 75" stroke="white" stroke-width="3.5" stroke-linecap="round" fill="none" stroke-dasharray="5,6" />
+    <polygon points="8,72 18,85 24,70" fill="white" />
+  </svg>
   <div class="yt-player__fallback">
     <p>This video can't be embedded. Watch it on YouTube:</p>
     <a href="https://www.youtube.com/watch?v=wwoy0VbXyLg" target="_blank" rel="noopener">Watch on YouTube</a>
