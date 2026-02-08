@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vocal-processing-website.vercel.app/sitemap.xml
